@@ -27,6 +27,9 @@ class List implements IList {
   }
 }
 
+console.log("Sessão PILHA");
+console.log("=======================================");
+
 // Sessão Pilha
 
 class Pilha extends List {
@@ -97,6 +100,9 @@ console.log("🚀 ~ pilha:", pilha);
 console.log("Retorno do isEmpty:", pilha.isEmpty());
 
 console.log("Retorno do size:", pilha.size());
+
+console.log("Sessão LISTA");
+console.log("=======================================");
 
 // Sessão Lista
 
