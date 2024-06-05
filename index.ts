@@ -1,13 +1,13 @@
-interface IList {
-  clear(): Array<any>;
+interface IList<T> {
+  clear(): Array<T>;
   isEmpty(): boolean;
   size(): number;
 }
 
-class List implements IList {
-  constructor(protected list: Array<any>) {}
+class List<T = any> implements IList<T> {
+  constructor(protected list: Array<T>) {}
 
-  public clear(): Array<any> {
+  public clear(): Array<T> {
     console.log("Limpando lista...");
 
     this.list = [];
@@ -32,12 +32,12 @@ console.log("=======================================");
 
 // Sessão Pilha
 
-class Pilha extends List {
-  constructor(startList: Array<string>) {
+class Pilha<T> extends List<T> {
+  constructor(startList: Array<T>) {
     super(startList);
   }
 
-  public push(newElement: string): Array<string> {
+  public push(newElement: T): Array<T> {
     console.log(`Fazendo push com o elemento: ${newElement}`);
 
     const newList = [...this.list, newElement];
@@ -47,7 +47,7 @@ class Pilha extends List {
     return this.list;
   }
 
-  public pop(): string {
+  public pop(): T {
     const lastElement = this.list[this.list.length - 1];
 
     console.log(`Fazendo pop com o elemento: ${lastElement}`);
@@ -59,14 +59,14 @@ class Pilha extends List {
     return lastElement;
   }
 
-  public peek(): string {
+  public peek(): T {
     const lastElement = this.list[this.list.length - 1];
 
     return lastElement;
   }
 }
 
-const pilha = new Pilha(["Luciel", "Pedro", "Thiago", "João"]);
+const pilha = new Pilha<string>(["Luciel", "Pedro", "Thiago", "João"]);
 
 console.log("🚀 ~ pilha:", pilha);
 
@@ -170,6 +170,8 @@ console.log("Retorno do pop: ", fila.pop());
 console.log("🚀 ~ fila:", fila);
 
 console.log("Retorno do peek: ", fila.peek());
+
+console.log("Retorno do clear: ", fila.clear());
 
 console.log("🚀 ~ fila:", fila);
 
